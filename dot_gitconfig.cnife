@@ -1,0 +1,14 @@
+[user]
+  name = CNife
+  email = CNife@vip.qq.com
+[alias]
+  s = status --short --branch
+  f = fetch --all
+  l = log --graph --pretty=format:'%C(auto)%h - %d %s %C(dim)%cr (%an)'
+[core]
+  autocrlf = input
+  safecrlf = warn
+[init]
+  defaultBranch = main
+[push]
+  autoSetupRemote = true
