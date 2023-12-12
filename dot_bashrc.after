@@ -1,0 +1,7 @@
+export PATH="$HOME/.local/bin:$PATH"
+
+if [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then
+  exec tmux new -A -s "$(whoami)"
+elif [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]; then
+  exec fish
+fi
