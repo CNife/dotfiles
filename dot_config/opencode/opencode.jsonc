@@ -1,0 +1,110 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {},
+  "model": "alibaba-coding-plan-cn/glm-5",
+  "small_model": "zhipuai-coding-plan/glm-4.7",
+  "mcp": {
+    "jina": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.jina.ai/sse",
+      "headers": {
+        "Authorization": "Bearer {file:~/.config/opencode/.secret/jina.api-key}"
+      }
+    },
+    "qmd": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "qmd",
+        "mcp"
+      ]
+    }
+  },
+  "permission": {
+    "edit": "ask",
+    "bash": {
+      "*": "ask",
+      // 基础文件操作
+      "cat *": "allow",
+      "cd *": "allow",
+      "ls *": "allow",
+      "pwd": "allow",
+      "file *": "allow",
+      "realpath *": "allow",
+      "basename *": "allow",
+      "dirname *": "allow",
+      "readlink *": "allow",
+      // 文件查找与搜索
+      "find *": "allow",
+      "locate *": "allow",
+      "grep *": "allow",
+      "whereis *": "allow",
+      "which *": "allow",
+      // 文件查看
+      "head *": "allow",
+      "tail *": "allow",
+      "less *": "allow",
+      "more *": "allow",
+      "nl *": "allow",
+      // 文件检查
+      "test *": "allow",
+      "stat *": "allow",
+      "tree *": "allow",
+      "cmp *": "allow",
+      "comm *": "allow",
+      // 磁盘信息
+      "df *": "allow",
+      "du *": "allow",
+      // 文本处理
+      "awk *": "allow",
+      "echo *": "allow",
+      "sort *": "allow",
+      "uniq *": "allow",
+      "wc *": "allow",
+      "diff *": "allow",
+      // 数据处理
+      "jq *": "allow",
+      // 系统信息
+      "uname *": "allow",
+      "hostname *": "allow",
+      "uptime *": "allow",
+      "free *": "allow",
+      "whoami *": "allow",
+      "id *": "allow",
+      "fastfetch *": "allow",
+      "ps *": "allow",
+      "pgrep *": "allow",
+      "sleep *": "allow",
+      // 网络只读
+      "curl *": "allow",
+      "wget *": "allow",
+      "ping *": "allow",
+      // 压缩查看
+      "tar -t *": "allow",
+      "zipinfo *": "allow",
+      "unzip -l *": "allow",
+      // 哈希校验
+      "md5sum *": "allow",
+      "sha1sum *": "allow",
+      "sha256sum *": "allow",
+      // Git 只读
+      "git diff *": "allow",
+      "git log *": "allow",
+      "git show *": "allow",
+      "git status *": "allow",
+      "git rev-parse *": "allow",
+      // 开发工具
+      "ruff *": "allow",
+      "shellcheck *": "allow",
+      // OpenCode 相关
+      "opencode *": "allow",
+      // 浏览器自动化
+      "playwright-cli *": "allow",
+      "agent-browser *": "allow"
+    }
+  },
+  "plugin": [
+    "oh-my-opencode@3.12.2"
+  ]
+}
