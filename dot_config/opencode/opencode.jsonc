@@ -11,14 +11,6 @@
       "headers": {
         "Authorization": "Bearer {file:~/.config/opencode/.secret/jina.api-key}"
       }
-    },
-    "qmd": {
-      "enabled": true,
-      "type": "local",
-      "command": [
-        "qmd",
-        "mcp"
-      ]
     }
   },
   "permission": {
