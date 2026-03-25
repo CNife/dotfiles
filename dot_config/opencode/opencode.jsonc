@@ -13,6 +13,12 @@
       }
     }
   },
+  "lsp": {
+    "rumdl": {
+      "command": ["rumdl", "server"],
+      "extensions": [".md", ".markdown", ".mdx", ".qmd"]
+    }
+  },
   "permission": {
     "edit": "ask",
     "bash": {
@@ -88,6 +94,7 @@
       "git rev-parse *": "allow",
       // 开发工具
       "ruff *": "allow",
+      "rumdl *": "allow",
       "shellcheck *": "allow",
       // OpenCode 相关
       "opencode *": "allow",
