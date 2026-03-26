@@ -33,6 +33,7 @@
       "basename *": "allow",
       "dirname *": "allow",
       "readlink *": "allow",
+      "mkdir *": "allow",
       // 文件查找与搜索
       "find *": "allow",
       "locate *": "allow",
