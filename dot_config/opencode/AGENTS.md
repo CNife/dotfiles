@@ -44,6 +44,15 @@ ruff check --fix <file_or_dir>                # 检查并修复
 - 禁止在代码中硬编码密钥或凭证
 - 禁止使用 `uv run ruff`，直接用 `ruff` 命令
 
+# WSL 与 Windows 交互
+
+禁止直接调用 `cmd.exe` 或 `powershell.exe`，使用包装函数：
+
+```bash
+cmd "dir C:\Users"
+powershell "Get-ChildItem C:\Users"
+```
+
 # 知识沉淀
 
 完成任务后，如有可总结的知识，记录到 `/mnt/c/Obsidian/个人/`，自行探索目录结构归档。
