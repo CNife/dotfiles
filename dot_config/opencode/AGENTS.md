@@ -55,4 +55,5 @@ powershell "Get-ChildItem C:\Users"
 
 # 知识沉淀
 
-完成任务后，如有可总结的知识，记录到 `/mnt/c/Obsidian/个人/`，自行探索目录结构归档。
+完成任务后，如有可总结的知识，记录到 Obsidian 中。
+Obsidian 仓库位置是 `/mnt/c/Obsidian/工作`，你需要根据总结的内容，自行探索目录结构归档。
