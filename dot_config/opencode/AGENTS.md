@@ -47,9 +47,10 @@ ruff check --fix <file_or_dir>                # 检查并修复
 # 操作系统环境
 
 - 当你需要与操作系统交互时，需要使用 `fastfetch --pipe -l none -s "Title:OS:Kernel:CPU:GPU:Memory:Disk:Shell` 获取当前系统的环境
-- 当你处于WSL中、需要操作Windows宿主机环境时，禁止直接调用 `cmd.exe` 或 `powershell.exe`，应当使用包装函数：
+- 当你处于WSL中、需要操作Windows宿主机环境时，禁止直接调用 `cmd.exe`、`pwsh.exe` 和 `powershell.exe`，应当使用包装函数：
 ```bash
 cmd "dir C:\Users"
+pwsh "Get-ChildItem C:\Users"
 powershell "Get-ChildItem C:\Users"
 ```
 
