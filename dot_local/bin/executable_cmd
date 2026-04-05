@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-cmd.exe /c "$@" 2>&1 | iconv -f GBK -t UTF-8
