@@ -1,0 +1,51 @@
+# Starship 配置 - 模拟 oh-my-zsh jtriley 主题风格
+
+# 格式：时间 + 用户@主机 + 目录 + git状态
+format = "$time$username$hostname$directory$git_status$git_branch\n$character"
+
+# 时间 - cyan 颜色
+[time]
+disabled = false
+format = "[$time]($style) "
+style = "bold cyan"
+time_format = "%T"
+
+# 用户名 - white
+[username]
+disabled = false
+format = "[$user]($style)"
+style_root = "bold red"
+style_user = "bold white"
+show_always = true
+
+# 主机名 - magenta @ white
+[hostname]
+disabled = false
+format = "@[$hostname]($style) "
+ssh_only = false
+style = "bold white"
+trim_at = ""
+
+# 目录 - green
+[directory]
+format = "[$path]($style)"
+style = "bold green"
+truncation_length = 0
+truncate_to_repo = false
+
+# Git 状态
+[git_status]
+format = "([$all_status$ahead_behind]($style))"
+style = "bold yellow"
+
+[git_branch]
+format = " [$symbol$branch]($style)"
+symbol = ""
+style = "bold purple"
+
+# 提示符 - yellow %%
+[character]
+format = "$symbol "
+success_symbol = "[%](bold yellow)"
+error_symbol = "[%](bold red)"
+vimcmd_symbol = "[%](bold yellow)"
