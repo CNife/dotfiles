@@ -13,7 +13,7 @@
 
 # Git 提交
 
-- 使用尽量简短的提交信息，只在一行之内；
+- 使用尽量简短的**中文**提交信息，只在一行之内；
 - 禁止添加 `chore: `, `fix: `, `feat: ` 等前缀。
 
 # Python 项目
@@ -44,10 +44,10 @@ ruff check --fix <file_or_dir>                # 检查并修复
 - 禁止在代码中硬编码密钥或凭证
 - 禁止使用 `uv run ruff`，直接用 `ruff` 命令
 
-# WSL 与 Windows 交互
+# 操作系统环境
 
-禁止直接调用 `cmd.exe` 或 `powershell.exe`，使用包装函数：
-
+- 当你需要与操作系统交互时，需要使用 `fastfetch --pipe -l none -s "Title:OS:Kernel:CPU:GPU:Memory:Disk:Shell` 获取当前系统的环境
+- 当你处于WSL中、需要操作Windows宿主机环境时，禁止直接调用 `cmd.exe` 或 `powershell.exe`，应当使用包装函数：
 ```bash
 cmd "dir C:\Users"
 powershell "Get-ChildItem C:\Users"
