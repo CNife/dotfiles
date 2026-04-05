@@ -193,5 +193,5 @@
       "agent-browser *": "allow",
     },
   },
-  "plugin": ["oh-my-openagent@3.14.0"],
+  "plugin": ["oh-my-openagent@3.15.1"],
 }
