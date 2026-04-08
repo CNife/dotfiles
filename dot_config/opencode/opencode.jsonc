@@ -208,6 +208,6 @@
     },
   },
   "plugin": [
-    "oh-my-openagent@3.15.3"
+    "oh-my-openagent@3.16.0"
   ],
 }
