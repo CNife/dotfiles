@@ -15,7 +15,12 @@
     "paddleocr": {
       "enabled": true,
       "type": "local",
-      "command": ["uvx", "--from", "paddleocr-mcp", "paddleocr_mcp"],
+      "command": [
+        "uvx",
+        "--from",
+        "paddleocr-mcp",
+        "paddleocr_mcp"
+      ],
       "environment": {
         "PADDLEOCR_MCP_PIPELINE": "PaddleOCR-VL",
         "PADDLEOCR_MCP_PPOCR_SOURCE": "aistudio",
@@ -26,8 +31,16 @@
   },
   "lsp": {
     "rumdl": {
-      "command": ["rumdl", "server"],
-      "extensions": [".md", ".markdown", ".mdx", ".qmd"],
+      "command": [
+        "rumdl",
+        "server"
+      ],
+      "extensions": [
+        ".md",
+        ".markdown",
+        ".mdx",
+        ".qmd"
+      ],
     },
   },
   "permission": {
@@ -188,10 +201,13 @@
       "shellcheck *": "allow",
       // OpenCode 相关
       "opencode *": "allow",
+      "npx skills find *": "allow",
       // 浏览器自动化
       "playwright-cli *": "allow",
       "agent-browser *": "allow",
     },
   },
-  "plugin": ["oh-my-openagent@3.15.1"],
+  "plugin": [
+    "oh-my-openagent@3.15.3"
+  ],
 }
