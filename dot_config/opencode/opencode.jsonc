@@ -1,8 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "provider": {},
-  "model": "alibaba-coding-plan-cn/glm-5",
-  "small_model": "zhipuai-coding-plan/glm-4.7",
+  "model": "alibaba-coding-plan-cn/qwen3.6-plus",
+  "small_model": "alibaba-coding-plan-cn/glm-4.7",
   "mcp": {
     "jina": {
       "enabled": true,

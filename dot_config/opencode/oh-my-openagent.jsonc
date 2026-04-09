@@ -2,34 +2,34 @@
     "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
     "agents": {
         "sisyphus": {
-            "model": "alibaba-coding-plan-cn/glm-5",
+            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
         },
         "hephaestus": {
-            "model": "alibaba-coding-plan-cn/glm-5",
+            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
         },
         "oracle": {
             "model": "alibaba-coding-plan-cn/glm-5",
         },
         "librarian": {
-            "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
         },
         "explore": {
-            "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
         },
         "multimodal-looker": {
-            "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
         },
         "prometheus": {
             "model": "alibaba-coding-plan-cn/glm-5",
         },
         "metis": {
-            "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+            "model": "alibaba-coding-plan-cn/glm-5",
         },
         "momus": {
             "model": "alibaba-coding-plan-cn/glm-5",
         },
         "atlas": {
-            "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
         },
     },
     "categories": {
@@ -46,15 +46,15 @@
             "description": "Autonomous problem-solving, thorough research",
         },
         "artistry": {
-            "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
             "description": "Creative and unconventional approaches",
         },
         "quick": {
-            "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
             "description": "Trivial tasks, typo fixes, single-file changes",
         },
         "unspecified-low": {
-            "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
             "description": "General tasks, low effort",
         },
         "unspecified-high": {
@@ -62,19 +62,24 @@
             "description": "General tasks, high effort",
         },
         "writing": {
-            "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
             "description": "Documentation, prose, technical writing",
         },
     },
     "background_task": {
         "providerConcurrency": {
             "alibaba-coding-plan-cn": 12,
-            "zhipuai-coding-plan": 2,
         },
     },
-    "disabled_mcps": ["websearch", "grep_app", "context7"],
-    "disabled_hooks": ["todo-continuation-enforcer"],
+    "disabled_mcps": [
+        "websearch",
+        "grep_app",
+        "context7",
+    ],
+    "disabled_hooks": [
+        "todo-continuation-enforcer",
+    ],
     "browser_automation_engine": {
-        "provider": "agent-browser"
-    }
+        "provider": "agent-browser",
+    },
 }
