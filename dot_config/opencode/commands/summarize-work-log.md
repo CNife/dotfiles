@@ -28,9 +28,9 @@ log_file = f'{log_dir}/{now.year} 年 {now.month} 月 {now.day} 日 {weekdays[no
 print(f'LOG_FILE={log_file}')
 print(f'LOG_DIR={log_dir}')
 
-# === 最近 7 天日志（排除元文件） ===
+# === 最近 3 天日志内容（作为风格参考） ===
 meta_files = {'AGENTS.md', '任务.md', '日记.md'}
-cutoff = now - timedelta(days=7)
+cutoff = now - timedelta(days=3)
 recent_logs = []
 for root, dirs, files in os.walk(BASE):
     for f in files:
@@ -38,10 +38,21 @@ for root, dirs, files in os.walk(BASE):
             path = os.path.join(root, f)
             mtime = datetime.fromtimestamp(os.path.getmtime(path))
             if mtime >= cutoff:
-                recent_logs.append(path)
-print('--- RECENT_LOGS ---')
-for p in sorted(recent_logs, reverse=True):
-    print(p)
+                recent_logs.append((mtime, path))
+
+print('--- STYLE_REFERENCE ---')
+for _, p in sorted(recent_logs, reverse=True)[:3]:
+    print(f'FILE: {p}')
+    with open(p, 'r') as f:
+        lines = f.readlines()
+        content_start = 0
+        for i, line in enumerate(lines):
+            if line.startswith('#') and '待办' not in line:
+                content_start = i
+                break
+        for line in lines[content_start:content_start+30]:
+            print(line.rstrip())
+    print('---')
 
 # === 最近修改的 Obsidian 文档（排除工作日志） ===
 work_base = '/mnt/c/Obsidian/工作'
@@ -61,7 +72,7 @@ for _, p in sorted(all_docs, key=lambda x: -x[0])[:10]:
 
 脚本输出说明：
 - `LOG_FILE` / `LOG_DIR`：今天日志的完整路径和所在目录。
-- `--- RECENT_LOGS ---` 下方：最近 7 天的日志文件路径（已排除元文件），按修改时间倒序。
+- `--- STYLE_REFERENCE ---` 下方：最近 3 天的日志内容片段（跳过待办事项块），用于学习你的写作风格。
 - `--- RECENT_DOCS ---` 下方：最近修改的 10 个非日志文档，按修改时间倒序。
 
 ### 2. 确定日志文件状态
@@ -76,19 +87,21 @@ for _, p in sorted(all_docs, key=lambda x: -x[0])[:10]:
 
 ### 3. 总结并写入
 
-**格式规则（为什么这样写）：**
-- `# 项目名` 作为一级分组 → 你的日志以项目为维度组织，便于日后按项目检索。
-- `### 标题` 分隔工作项 → 这是全库统一的分隔符，保持一级标题留给项目名、三级标题留给具体事项的两级层次。
-- `✅` 已完成、`🔄` 进行中、`- [ ]` 待办 → 与 tasks 插件和你的记录习惯一致。
-- 子项缩进 2 空格 → 与你现有日志中的嵌套列表风格一致。
-- `[[文档名]]` 链接新产出的笔记/方案 → 利用 Obsidian 双向链接，让工作项与产出文档互相关联。
+**格式规则（必须遵守）：**
+- `# 项目名` → 一级标题，用于分组（如 `# Genos Reg Server`）
+- `## 标题` → 二级标题，分隔具体工作项（如 `## Cookie 认证修复`）
+- `✅` 已完成 / `🔄` 进行中 / `- [ ]` 待办 → 任务状态标记
+- 每个工作项**不超过 2 行**
 
-**内容规则：**
-- 只记录本次会话中实际完成或推进的工作。
-- 每个工作项包含：做了什么、结果如何、是否有遗留。
-- 合并同类项，同一个项目下的相关工作归为一组，避免流水账。
-- 如果本次工作是近期日志中某项任务的延续，在描述中体现上下文。
-- 如果本次工作关闭了近期日志中的待办（`- [ ]` → `- [x]`），标注完成。
+**内容规则（硬约束）：**
+- ⚠️ **禁止写入**：排查过程、调试细节、中间步骤、技术实现细节
+- ✅ **只写三要素**：问题是什么 + 做了什么 + 结果如何
+- ✅ **每个工作项不超过 2 行**，超过则拆分为多个独立项
+- ✅ 合并同类项，同一项目下的相关工作归为一组
+
+**正面示例（参考风格，不模仿内容）：**
+参考 `--- STYLE_REFERENCE ---` 输出的最近日志内容。
+你的日志风格是：简洁、只写结果、无过程细节。
 
 **写入操作：**
 - 在日志文件末尾空一行后，追加总结内容。
