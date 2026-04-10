@@ -9,44 +9,70 @@ description: 将当前会话的工作内容总结到今天的 Obsidian 工作日
 
 ## 步骤
 
-### 1. 确定今天日志文件的路径
+### 1. 收集上下文
 
-```bash
-# 获取今天的日期信息
-YEAR=$(date +%Y)
-MONTH_NUM=$(date +%-m)           # 不带前导零，如 4
-MONTH_DIR=$(date +%m)            # 带前导零，如 04
-DAY_NUM=$(date +%-d)             # 不带前导零，如 10
-WEEKDAY_NAMES=("星期一" "星期二" "星期三" "星期四" "星期五" "星期六" "星期日")
-WEEKDAY=${WEEKDAY_NAMES[$(( $(date +%u) - 1 ))]}
-LOG_FILE="/mnt/c/Obsidian/工作/工作日志/${YEAR}/${MONTH_DIR}/${YEAR} 年 ${MONTH_NUM} 月 ${DAY_NUM} 日 ${WEEKDAY}.md"
-LOG_DIR="/mnt/c/Obsidian/工作/工作日志/${YEAR}/${MONTH_DIR}"
+执行以下 Python 脚本，一次性获取日志路径、近期日志列表和最近修改的文档：
+
+```python
+python3 -c "
+import os
+from datetime import datetime, timedelta
+
+BASE = '/mnt/c/Obsidian/工作/工作日志'
+
+# === 今天日志路径 ===
+now = datetime.now()
+weekdays = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
+log_dir = f'{BASE}/{now.year}/{now.month:02d}'
+log_file = f'{log_dir}/{now.year} 年 {now.month} 月 {now.day} 日 {weekdays[now.weekday()]}.md'
+print(f'LOG_FILE={log_file}')
+print(f'LOG_DIR={log_dir}')
+
+# === 最近 7 天日志（排除元文件） ===
+meta_files = {'AGENTS.md', '任务.md', '日记.md'}
+cutoff = now - timedelta(days=7)
+recent_logs = []
+for root, dirs, files in os.walk(BASE):
+    for f in files:
+        if f.endswith('.md') and f not in meta_files:
+            path = os.path.join(root, f)
+            mtime = datetime.fromtimestamp(os.path.getmtime(path))
+            if mtime >= cutoff:
+                recent_logs.append(path)
+print('--- RECENT_LOGS ---')
+for p in sorted(recent_logs, reverse=True):
+    print(p)
+
+# === 最近修改的 Obsidian 文档（排除工作日志） ===
+work_base = '/mnt/c/Obsidian/工作'
+all_docs = []
+for root, dirs, files in os.walk(work_base):
+    if '工作日志' in root.split(os.sep):
+        continue
+    for f in files:
+        if f.endswith('.md'):
+            path = os.path.join(root, f)
+            all_docs.append((os.path.getmtime(path), path))
+print('--- RECENT_DOCS ---')
+for _, p in sorted(all_docs, key=lambda x: -x[0])[:10]:
+    print(p)
+"
 ```
 
-- 若 `$LOG_FILE` 已存在 → 读取现有内容，准备追加。
+脚本输出说明：
+- `LOG_FILE` / `LOG_DIR`：今天日志的完整路径和所在目录。
+- `--- RECENT_LOGS ---` 下方：最近 7 天的日志文件路径（已排除元文件），按修改时间倒序。
+- `--- RECENT_DOCS ---` 下方：最近修改的 10 个非日志文档，按修改时间倒序。
+
+### 2. 确定日志文件状态
+
+- 若 `LOG_FILE` 已存在 → 读取现有内容，准备追加。
 - 若不存在 → 确保目录存在并复制模板：
   ```bash
   mkdir -p "$LOG_DIR"
   cp "/mnt/c/Obsidian/工作/工作日志/日记.md" "$LOG_FILE"
   ```
   `日记.md` 是标准模板，包含 `# 待办事项` 和 tasks 查询块，复制后在此基础上追加即可。
-
-### 2. 收集上下文
-
-**本次会话历史**：读取完整对话，提取实际完成或推进的工作项。
-
-**最近一周工作日志**（了解正在进行的项目和遗留待办）：
-```bash
-# 列出最近 7 天的日志文件（按修改时间倒序）
-find /mnt/c/Obsidian/工作/工作日志/ -name "*.md" -type f -mtime -7 | sort -t/ -k1 | tail -20
-```
-读取其中有实际内容的文件（排除 `AGENTS.md`、`任务.md`、`日记.md` 等元文件）。
-
-**最近修改的 Obsidian 文档**（发现可能遗漏的工作产出）：
-```bash
-# 排除工作日志目录，按修改时间取最近 10 个
-find /mnt/c/Obsidian/工作/ -path "*/工作日志" -prune -o -name "*.md" -type f -print | xargs ls -t | head -10
-```
 
 ### 3. 总结并写入
 
