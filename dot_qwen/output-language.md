@@ -1,8 +1,8 @@
-# Output language preference: zh-CN
-<!-- qwen-code:llm-output-language: zh-CN -->
+# Output language preference: Chinese
+<!-- qwen-code:llm-output-language: Chinese -->
 
 ## Rule
-You MUST always respond in **zh-CN** regardless of the user's input language.
+You MUST always respond in **Chinese** regardless of the user's input language.
 This is a mandatory requirement, not a preference.
 
 ## Exception
@@ -14,4 +14,4 @@ Do **not** translate or rewrite:
 - Exact quoted text from the user (keep quotes verbatim)
 
 ## Tool / system outputs
-Raw tool/system outputs may contain fixed-format English. Preserve them verbatim, and if needed, add a short **zh-CN** explanation below.
+Raw tool/system outputs may contain fixed-format English. Preserve them verbatim, and if needed, add a short **Chinese** explanation below.

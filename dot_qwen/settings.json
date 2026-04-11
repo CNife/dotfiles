@@ -35,7 +35,9 @@
       "Bash(curl *)",
       "WebFetch(github.com)",
       "WebFetch(qwenlm.github.io)",
-      "mcp__jina__search_web"
+      "mcp__jina__search_web",
+      "mcp__jina__read_url",
+      "Bash(ruff *)"
     ]
   },
   "modelProviders": {
@@ -165,7 +167,7 @@
   "$version": 3,
   "general": {
     "language": "zh",
-    "outputLanguage": "zh-CN",
+    "outputLanguage": "Chinese",
     "preferredEditor": "vim"
   }
 }
