@@ -4,7 +4,15 @@
       "httpUrl": "https://mcp.jina.ai/v1",
       "headers": {
         "Authorization": "Bearer $JINA_API_KEY"
-      }
+      },
+      "trust": true
+    },
+    "markitdown": {
+      "command": "uvx",
+      "args": [
+        "markitdown-mcp"
+      ],
+      "trust": true
     }
   },
   "lsp": {
@@ -20,25 +28,6 @@
         ".qmd"
       ]
     }
-  },
-  "permissions": {
-    "allow": [
-      "Bash(mkdir *)",
-      "Read(//usr/lib/qwen-code/bundled/qc-helper/docs/features/**)",
-      "Read(//usr/lib/qwen-code/bundled/qc-helper/docs/**)",
-      "WebSearch",
-      "mcp__jina__parallel_read_url",
-      "Bash(which *)",
-      "Bash(find *)",
-      "Read(//usr/lib/qwen-code/bundled/qc-helper/**)",
-      "Read(//usr/lib/qwen-code/**)",
-      "Bash(curl *)",
-      "WebFetch(github.com)",
-      "WebFetch(qwenlm.github.io)",
-      "mcp__jina__search_web",
-      "mcp__jina__read_url",
-      "Bash(ruff *)"
-    ]
   },
   "modelProviders": {
     "openai": [

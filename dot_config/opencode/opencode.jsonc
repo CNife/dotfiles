@@ -12,22 +12,14 @@
         "Authorization": "Bearer {file:~/.config/opencode/.secret/jina.api-key}",
       },
     },
-    "paddleocr": {
+    "markitdown": {
       "enabled": true,
       "type": "local",
       "command": [
         "uvx",
-        "--from",
-        "paddleocr-mcp",
-        "paddleocr_mcp"
+        "markitdown-mcp",
       ],
-      "environment": {
-        "PADDLEOCR_MCP_PIPELINE": "PaddleOCR-VL",
-        "PADDLEOCR_MCP_PPOCR_SOURCE": "aistudio",
-        "PADDLEOCR_MCP_SERVER_URL": "https://f3kbm7o0k2k14dn9.aistudio-app.com",
-        "PADDLEOCR_MCP_AISTUDIO_ACCESS_TOKEN": "{file:~/.config/opencode/.secret/paddle.api-key}",
-      },
-    },
+    }
   },
   "lsp": {
     "rumdl": {
@@ -208,6 +200,6 @@
     },
   },
   "plugin": [
-    "oh-my-openagent@3.17.0"
+    "oh-my-openagent@3.17.1"
   ],
 }
