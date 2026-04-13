@@ -163,7 +163,8 @@
   "permissions": {
     "allow": [
       "Bash(ruff *)",
-      "Bash(sleep *)"
+      "Bash(sleep *)",
+      "WebSearch"
     ]
   }
 }
