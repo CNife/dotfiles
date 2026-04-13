@@ -148,7 +148,8 @@
     "statusLine": {
       "type": "command",
       "command": "bash ~/.qwen/statusline-command.sh"
-    }
+    },
+    "feedbackLastShownTimestamp": 1776050094703
   },
   "model": {
     "name": "coder-model"
@@ -158,5 +159,11 @@
     "language": "zh",
     "outputLanguage": "Chinese",
     "preferredEditor": "vim"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(ruff *)",
+      "Bash(sleep *)"
+    ]
   }
 }

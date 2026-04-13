@@ -1,5 +1,4 @@
 ---
-name: review-session
 description: 分析本次会话中的配合不畅场景，总结原因并写入 AGENTS.md 以避免重复问题。
 ---
 
