@@ -2,10 +2,10 @@
     "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
     "agents": {
         "sisyphus": {
-            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
+            "model": "zhipuai-coding-plan/glm-5.1",
         },
         "hephaestus": {
-            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
+            "model": "zhipuai-coding-plan/glm-5.1",
         },
         "oracle": {
             "model": "alibaba-coding-plan-cn/glm-5",
@@ -34,7 +34,7 @@
     },
     "categories": {
         "visual-engineering": {
-            "model": "alibaba-coding-plan-cn/glm-5",
+            "model": "zhipuai-coding-plan/glm-5.1",
             "description": "Frontend, UI/UX, design, styling, animation",
         },
         "ultrabrain": {
@@ -69,6 +69,7 @@
     "background_task": {
         "providerConcurrency": {
             "alibaba-coding-plan-cn": 12,
+            "zhipuai-coding-plan": 8,
         },
     },
     "disabled_mcps": [

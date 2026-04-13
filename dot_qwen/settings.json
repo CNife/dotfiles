@@ -132,12 +132,27 @@
           },
           "contextWindowSize": 202752
         }
+      },
+      {
+        "id": "glm-5.1",
+        "name": "[Zhipu Coding Plan] glm-5.1",
+        "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+        "envKey": "ZHIPU_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 200000,
+          "maxTokens": 131072,
+          "extra_body": {
+            "thinking": {
+              "type": "enabled"
+            }
+          }
+        }
       }
     ]
   },
   "security": {
     "auth": {
-      "selectedType": "qwen-oauth"
+      "selectedType": "openai"
     }
   },
   "codingPlan": {
@@ -149,10 +164,11 @@
       "type": "command",
       "command": "bash ~/.qwen/statusline-command.sh"
     },
-    "feedbackLastShownTimestamp": 1776050094703
+    "feedbackLastShownTimestamp": 1776050094703,
+    "compactMode": false
   },
   "model": {
-    "name": "coder-model"
+    "name": "glm-5.1"
   },
   "$version": 3,
   "general": {
