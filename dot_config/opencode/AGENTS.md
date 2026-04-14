@@ -47,12 +47,9 @@ ruff check --fix <file_or_dir>                # 检查并修复
 # 操作系统环境
 
 - 当你需要与操作系统交互时，需要使用 `fastfetch --pipe -l none -s "Title:OS:Kernel:CPU:GPU:Memory:Disk:Shell` 获取当前系统的环境
-- 当你处于WSL中、需要操作Windows宿主机环境时，需要注意编码问题。调用Windows程序可能会输出乱码，你需要使用iconv进行转换：
-```
-powershell.exe "Get-ChildItem C:\Users" | iconv -f GBK -t UTF-8
-```
 
-# 知识沉淀
+## WSL
 
-完成任务后，如有可总结的知识，记录到 Obsidian 中。
-Obsidian 仓库位置是 `/mnt/c/Obsidian/工作`，你需要根据总结的内容，自行探索目录结构归档。
+当你确定自己处于WSL中时，需遵循：
+- 操作Windows宿主机环境时，调用Windows程序可能会输出乱码，你需要进行转换。如`powershell.exe -Command "Get-ChildItem C:\Users" | iconv -f GBK -t UTF-8`；
+- 操作浏览器时，必须使用Windows上的Edge，运行`powershell.exe 'C:\OneDrive\Scripts\edge-cdp\restart-edge-cdp.bat'`以 CDP 模式启动，不能使用WSL上的浏览器。启动之后CDP端口为 `9222`，可以连接并执行命令。
