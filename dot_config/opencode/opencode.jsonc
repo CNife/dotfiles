@@ -94,7 +94,6 @@
       "git status *": "allow",
       "git rev-parse *": "allow",
       // 开发工具
-      "ruff *": "allow",
       "rumdl *": "allow",
       "shellcheck *": "allow",
       // OpenCode 相关
@@ -107,9 +106,10 @@
       "uv add *": "allow",
       "uv run pytest *": "allow",
       "uv run ruff *": "allow",
+      "ruff *": "allow",
     },
   },
   "plugin": [
-    "oh-my-openagent@3.17.1"
+    "oh-my-openagent@3.17.2",
   ],
 }
