@@ -1,4 +1,5 @@
 ---
+name: commit-push-change
 description: 提交变更并推送
 ---
 

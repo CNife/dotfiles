@@ -152,7 +152,7 @@
   },
   "security": {
     "auth": {
-      "selectedType": "openai"
+      "selectedType": "qwen-oauth"
     }
   },
   "codingPlan": {
@@ -168,7 +168,7 @@
     "compactMode": false
   },
   "model": {
-    "name": "glm-5.1"
+    "name": "coder-model"
   },
   "$version": 3,
   "general": {
@@ -180,7 +180,11 @@
     "allow": [
       "Bash(ruff *)",
       "Bash(sleep *)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(agent-browser *)",
+      "Bash(curl *)",
+      "Bash(fastfetch *)",
+      "Bash(find *)"
     ]
   }
 }
