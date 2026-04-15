@@ -51,5 +51,5 @@ ruff check --fix <file_or_dir>                # 检查并修复
 ## WSL
 
 当你确定自己处于WSL中时，需遵循：
-- 操作Windows宿主机环境时，调用Windows程序可能会输出乱码，你需要进行转换。如`powershell.exe -Command "Get-ChildItem C:\Users" | iconv -f GBK -t UTF-8`；
+- 操作Windows宿主机环境时，调用Windows程序可能会输出乱码，你需要进行转换。如`powershell.exe -Command "Get-ChildItem C:\Users" | iconv -f GBK -t UTF-8`；调用 obsidian.exe 不需要 iconv 转换；
 - 操作浏览器时，必须使用Windows上的Edge，运行`powershell.exe 'C:\OneDrive\Scripts\edge-cdp\restart-edge-cdp.bat'`以 CDP 模式启动，不能使用WSL上的浏览器。启动之后CDP端口为 `9222`，可以连接并执行命令。
