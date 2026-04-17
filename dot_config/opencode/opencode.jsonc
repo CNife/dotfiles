@@ -165,6 +165,6 @@
     },
   },
   "plugin": [
-    "oh-my-openagent@3.17.3",
+    "oh-my-openagent@3.17.4",
   ],
 }
