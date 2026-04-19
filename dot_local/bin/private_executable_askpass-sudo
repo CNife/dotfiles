@@ -1,0 +1,4 @@
+#!/bin/sh
+# SUDO_ASKPASS helper: decrypts sudo password from GPG-encrypted file
+# Password never appears in LLM context or PTY output
+gpg --batch --quiet --decrypt ~/.config/opencode/.secret/sudo-pass.gpg 2>/dev/null
