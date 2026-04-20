@@ -50,6 +50,8 @@
     "edit": "ask",
     "bash": {
       "*": "ask",
+      // sudo（每次需确认，密码通过 SUDO_ASKPASS 自动提供）
+      "sudo *": "ask",
       // 基础文件操作
       "cat *": "allow",
       "cd *": "allow",
