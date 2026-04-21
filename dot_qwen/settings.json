@@ -1,6 +1,26 @@
 {
+  "$version": 3,
+  "codingPlan": {
+    "region": "china",
+    "version": "793dbc7512eec8838b5a8f3cb4c7baf9c516d6b06439c30929d394fb22a0d26d"
+  },
+  "model": {
+    "name": "qwen3.6-plus"
+  },
   "modelProviders": {
     "openai": [
+      {
+        "id": "qwen3.5-plus",
+        "name": "[ModelStudio Coding Plan] qwen3.5-plus",
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "envKey": "BAILIAN_CODING_PLAN_API_KEY",
+        "generationConfig": {
+          "extra_body": {
+            "enable_thinking": true
+          },
+          "contextWindowSize": 1000000
+        }
+      },
       {
         "id": "qwen3.6-plus",
         "name": "[ModelStudio Coding Plan] qwen3.6-plus",
@@ -51,51 +71,84 @@
         }
       },
       {
-        "id": "glm-5.1",
-        "name": "[Zhipu Coding Plan] glm-5.1",
+        "id": "qwen3-coder-plus",
+        "name": "[ModelStudio Coding Plan] qwen3-coder-plus",
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "envKey": "BAILIAN_CODING_PLAN_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      },
+      {
+        "id": "qwen3-coder-next",
+        "name": "[ModelStudio Coding Plan] qwen3-coder-next",
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "envKey": "BAILIAN_CODING_PLAN_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 262144
+        }
+      },
+      {
+        "id": "qwen3-max-2026-01-23",
+        "name": "[ModelStudio Coding Plan] qwen3-max-2026-01-23",
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "envKey": "BAILIAN_CODING_PLAN_API_KEY",
+        "generationConfig": {
+          "extra_body": {
+            "enable_thinking": true
+          },
+          "contextWindowSize": 262144
+        }
+      },
+      {
+        "id": "glm-4.7",
+        "name": "[ModelStudio Coding Plan] glm-4.7",
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "envKey": "BAILIAN_CODING_PLAN_API_KEY",
+        "generationConfig": {
+          "extra_body": {
+            "enable_thinking": true
+          },
+          "contextWindowSize": 202752
+        }
+      },
+      {
         "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
         "envKey": "ZHIPU_API_KEY",
         "generationConfig": {
           "contextWindowSize": 200000,
-          "maxTokens": 131072,
           "extra_body": {
             "thinking": {
               "type": "enabled"
             }
-          }
-        }
+          },
+          "maxTokens": 131072
+        },
+        "id": "glm-5.1",
+        "name": "[Zhipu Coding Plan] glm-5.1"
       }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(cat *)",
+      "Bash(curl *)",
+      "Bash(date)",
+      "Bash(file *)",
+      "Bash(find *)",
+      "Bash(ruff *)",
+      "Bash(test *)",
+      "Read(//mnt/c/Obsidian/**)",
+      "WebFetch(github.com)",
+      "WebFetch(skills.sh)",
+      "WebFetch(www.bing.com)",
+      "WebFetch(www.google.com)"
     ]
   },
   "security": {
     "auth": {
       "selectedType": "openai"
     }
-  },
-  "codingPlan": {
-    "region": "china",
-    "version": "793dbc7512eec8838b5a8f3cb4c7baf9c516d6b06439c30929d394fb22a0d26d"
-  },
-  "model": {
-    "name": "qwen3.6-plus"
-  },
-  "$version": 3,
-  "permissions": {
-    "allow": [
-      "Bash(cat *)",
-      "Bash(curl *)",
-      "Bash(file *)",
-      "Bash(find *)",
-      "Bash(ruff *)",
-      "Bash(test *)",
-      "Bash(xxd *)",
-      "Read(//mnt/c/Obsidian/**)",
-      "Read(//mnt/c/Obsidian/个人/**)",
-      "WebFetch(github.com)",
-      "WebFetch(skills.sh)",
-      "WebFetch(www.bing.com)",
-      "WebFetch(www.google.com)"
-    ]
   },
   "ui": {
     "compactMode": false,
