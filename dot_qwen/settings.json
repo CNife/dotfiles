@@ -1,51 +1,10 @@
 {
-  "mcpServers": {
-    "jina": {
-      "httpUrl": "https://mcp.jina.ai/v1",
-      "headers": {
-        "Authorization": "Bearer $JINA_API_KEY"
-      },
-      "trust": true
-    },
-    "markitdown": {
-      "command": "uvx",
-      "args": [
-        "markitdown-mcp"
-      ],
-      "trust": true
-    }
-  },
-  "lsp": {
-    "rumdl": {
-      "command": [
-        "rumdl",
-        "server"
-      ],
-      "extensions": [
-        ".md",
-        ".markdown",
-        ".mdx",
-        ".qmd"
-      ]
-    }
-  },
   "modelProviders": {
     "openai": [
       {
         "id": "qwen3.6-plus",
         "name": "[ModelStudio Coding Plan] qwen3.6-plus",
-        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
-        "envKey": "BAILIAN_CODING_PLAN_API_KEY",
-        "generationConfig": {
-          "extra_body": {
-            "enable_thinking": true
-          },
-          "contextWindowSize": 1000000
-        }
-      },
-      {
-        "id": "qwen3.5-plus",
-        "name": "[ModelStudio Coding Plan] qwen3.5-plus",
+        "description": "Currently available to Pro subscribers only.",
         "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
         "envKey": "BAILIAN_CODING_PLAN_API_KEY",
         "generationConfig": {
@@ -92,48 +51,6 @@
         }
       },
       {
-        "id": "qwen3-coder-plus",
-        "name": "[ModelStudio Coding Plan] qwen3-coder-plus",
-        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
-        "envKey": "BAILIAN_CODING_PLAN_API_KEY",
-        "generationConfig": {
-          "contextWindowSize": 1000000
-        }
-      },
-      {
-        "id": "qwen3-coder-next",
-        "name": "[ModelStudio Coding Plan] qwen3-coder-next",
-        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
-        "envKey": "BAILIAN_CODING_PLAN_API_KEY",
-        "generationConfig": {
-          "contextWindowSize": 262144
-        }
-      },
-      {
-        "id": "qwen3-max-2026-01-23",
-        "name": "[ModelStudio Coding Plan] qwen3-max-2026-01-23",
-        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
-        "envKey": "BAILIAN_CODING_PLAN_API_KEY",
-        "generationConfig": {
-          "extra_body": {
-            "enable_thinking": true
-          },
-          "contextWindowSize": 262144
-        }
-      },
-      {
-        "id": "glm-4.7",
-        "name": "[ModelStudio Coding Plan] glm-4.7",
-        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
-        "envKey": "BAILIAN_CODING_PLAN_API_KEY",
-        "generationConfig": {
-          "extra_body": {
-            "enable_thinking": true
-          },
-          "contextWindowSize": 202752
-        }
-      },
-      {
         "id": "glm-5.1",
         "name": "[Zhipu Coding Plan] glm-5.1",
         "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
@@ -152,39 +69,36 @@
   },
   "security": {
     "auth": {
-      "selectedType": "qwen-oauth"
+      "selectedType": "openai"
     }
   },
   "codingPlan": {
     "region": "china",
-    "version": "14f460a8f649f424fc97c5bafbb5b4e0779b510007827df5ee3ef78849a55917"
-  },
-  "ui": {
-    "statusLine": {
-      "type": "command",
-      "command": "bash ~/.qwen/statusline-command.sh"
-    },
-    "feedbackLastShownTimestamp": 1776050094703,
-    "compactMode": false
+    "version": "793dbc7512eec8838b5a8f3cb4c7baf9c516d6b06439c30929d394fb22a0d26d"
   },
   "model": {
-    "name": "coder-model"
+    "name": "qwen3.6-plus"
   },
   "$version": 3,
-  "general": {
-    "language": "zh",
-    "outputLanguage": "Chinese",
-    "preferredEditor": "vim"
-  },
   "permissions": {
     "allow": [
-      "Bash(ruff *)",
-      "Bash(sleep *)",
-      "WebSearch",
-      "Bash(agent-browser *)",
+      "Bash(cat *)",
       "Bash(curl *)",
-      "Bash(fastfetch *)",
-      "Bash(find *)"
+      "Bash(file *)",
+      "Bash(find *)",
+      "Bash(ruff *)",
+      "Bash(test *)",
+      "Bash(xxd *)",
+      "Read(//mnt/c/Obsidian/**)",
+      "Read(//mnt/c/Obsidian/个人/**)",
+      "WebFetch(github.com)",
+      "WebFetch(skills.sh)",
+      "WebFetch(www.bing.com)",
+      "WebFetch(www.google.com)"
     ]
+  },
+  "ui": {
+    "compactMode": false,
+    "showLineNumbers": true
   }
 }
