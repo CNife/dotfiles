@@ -7,7 +7,7 @@
     "jina": {
       "enabled": true,
       "type": "remote",
-      "url": "https://mcp.jina.ai/sse",
+      "url": "https://mcp.jina.ai/v1",
       "headers": {
         "Authorization": "Bearer {file:~/.config/opencode/.secret/jina.api-key}",
       },
