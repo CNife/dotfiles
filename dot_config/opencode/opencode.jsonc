@@ -172,9 +172,22 @@
       "obsidian.exe dev:css *": "allow",
       "obsidian.exe dev:dom *": "allow",
       "obsidian.exe dev:errors *": "allow",
+      "kubectl get *": "allow",
+      "kubectl describe *": "allow",
+      "kubectl logs *": "allow",
+      "kubectl top *": "allow",
+      "kubectl explain *": "allow",
+      "kubectl api-resources *": "allow",
+      "kubectl api-versions *": "allow",
+      "kubectl cluster-info *": "allow",
+      "kubectl config view *": "allow",
+      "kubectl version *": "allow",
+      "kubectl auth can-i *": "allow",
+      "kubectl diff *": "allow",
+      "kubectl rollout history *": "allow",
     },
   },
   "plugin": [
-    "oh-my-openagent@3.17.5"
+    "oh-my-openagent@3.17.4"
   ],
 }
