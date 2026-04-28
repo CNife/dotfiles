@@ -1,86 +1,90 @@
 {
-    "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
-    "agents": {
-        "sisyphus": {
-            "model": "zhipuai-coding-plan/glm-5.1",
-        },
-        "hephaestus": {
-            "model": "zhipuai-coding-plan/glm-5.1",
-        },
-        "oracle": {
-            "model": "alibaba-coding-plan-cn/glm-5",
-        },
-        "librarian": {
-            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
-        },
-        "explore": {
-            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
-        },
-        "multimodal-looker": {
-            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
-        },
-        "prometheus": {
-            "model": "alibaba-coding-plan-cn/glm-5",
-        },
-        "metis": {
-            "model": "alibaba-coding-plan-cn/glm-5",
-        },
-        "momus": {
-            "model": "alibaba-coding-plan-cn/glm-5",
-        },
-        "atlas": {
-            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
-        },
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "hephaestus": {
+      "model": "deepseek/deepseek-v4-pro",
     },
-    "categories": {
-        "visual-engineering": {
-            "model": "zhipuai-coding-plan/glm-5.1",
-            "description": "Frontend, UI/UX, design, styling, animation",
-        },
-        "ultrabrain": {
-            "model": "alibaba-coding-plan-cn/glm-5",
-            "description": "Deep logical reasoning, complex architecture decisions",
-        },
-        "deep": {
-            "model": "alibaba-coding-plan-cn/glm-5",
-            "description": "Autonomous problem-solving, thorough research",
-        },
-        "artistry": {
-            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
-            "description": "Creative and unconventional approaches",
-        },
-        "quick": {
-            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
-            "description": "Trivial tasks, typo fixes, single-file changes",
-        },
-        "unspecified-low": {
-            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
-            "description": "General tasks, low effort",
-        },
-        "unspecified-high": {
-            "model": "alibaba-coding-plan-cn/glm-5",
-            "description": "General tasks, high effort",
-        },
-        "writing": {
-            "model": "alibaba-coding-plan-cn/qwen3.6-plus",
-            "description": "Documentation, prose, technical writing",
-        },
+    "oracle": {
+      "model": "zhipuai-coding-plan/glm-5.1",
     },
-    "background_task": {
-        "providerConcurrency": {
-            "alibaba-coding-plan-cn": 12,
-            "zhipuai-coding-plan": 8,
-        },
+    "librarian": {
+      "model": "alibaba-coding-plan-cn/qwen3.6-plus",
     },
-    "disabled_mcps": [
-        "websearch",
-        "grep_app",
-        "context7",
-    ],
-    "disabled_hooks": [
-        "todo-continuation-enforcer",
-    ],
-    "browser_automation_engine": {
-        "provider": "agent-browser",
+    "explore": {
+      "model": "alibaba-coding-plan-cn/qwen3.6-plus",
     },
+    "multimodal-looker": {
+      "model": "alibaba-coding-plan-cn/qwen3.6-plus",
+    },
+    "prometheus": {
+      "model": "deepseek/deepseek-v4-pro",
+    },
+    "metis": {
+      "model": "deepseek/deepseek-v4-pro",
+    },
+    "momus": {
+      "model": "deepseek/deepseek-v4-pro",
+    },
+    "atlas": {
+      "model": "alibaba-coding-plan-cn/qwen3.6-plus",
+    },
+    "sisyphus-junior": {
+      "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+    },
+    "sisyphus": {
+      "model": "deepseek/deepseek-v4-pro",
+    },
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "alibaba-coding-plan-cn/qwen3.6-plus",
+      "description": "Frontend, UI/UX, design, styling, animation",
+    },
+    "ultrabrain": {
+      "model": "deepseek/deepseek-v4-pro",
+      "description": "Deep logical reasoning, complex architecture decisions",
+    },
+    "deep": {
+      "model": "deepseek/deepseek-v4-pro",
+      "description": "Autonomous problem-solving, thorough research",
+    },
+    "artistry": {
+      "model": "alibaba-coding-plan-cn/qwen3.6-plus",
+      "description": "Creative and unconventional approaches",
+    },
+    "quick": {
+      "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+      "description": "Trivial tasks, typo fixes, single-file changes",
+    },
+    "unspecified-low": {
+      "model": "alibaba-coding-plan-cn/qwen3.5-plus",
+      "description": "General tasks, low effort",
+    },
+    "unspecified-high": {
+      "model": "deepseek/deepseek-v4-pro",
+      "description": "General tasks, high effort",
+    },
+    "writing": {
+      "model": "alibaba-coding-plan-cn/qwen3.6-plus",
+      "description": "Documentation, prose, technical writing",
+    },
+  },
+  "background_task": {
+    "providerConcurrency": {
+      "alibaba-coding-plan-cn": 12,
+      "deepseek": 12,
+      "zhipuai-coding-plan": 3,
+    },
+  },
+  "disabled_mcps": [
+    "websearch",
+    "grep_app",
+    "context7"
+  ],
+  "disabled_hooks": [
+    "todo-continuation-enforcer"
+  ],
+  "browser_automation_engine": {
+    "provider": "playwright-cli",
+  },
 }

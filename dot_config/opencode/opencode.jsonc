@@ -1,8 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "provider": {},
-  "model": "alibaba-coding-plan-cn/qwen3.6-plus",
-  "small_model": "alibaba-coding-plan-cn/glm-4.7",
+  "model": "deepseek/deepseek-v4-pro",
+  "small_model": "alibaba-coding-plan-cn/qwen3.5-plus",
   "mcp": {
     "jina": {
       "enabled": true,
@@ -12,18 +12,15 @@
         "Authorization": "Bearer {file:~/.config/opencode/.secret/jina.api-key}",
       },
     },
-    "markitdown": {
-      "enabled": true,
+    "paddleocr": {
+      "enabled": false,
       "type": "local",
       "command": [
         "uvx",
-        "markitdown-mcp",
+        "--from",
+        "paddleocr-mcp",
+        "paddleocr_mcp"
       ],
-    },
-    "paddleocr": {
-      "enabled": true,
-      "type": "local",
-      "command": ["uvx", "--from", "paddleocr-mcp", "paddleocr_mcp"],
       "environment": {
         "PADDLEOCR_MCP_PIPELINE": "PaddleOCR-VL",
         "PADDLEOCR_MCP_PPOCR_SOURCE": "aistudio",
@@ -178,6 +175,6 @@
     },
   },
   "plugin": [
-    "oh-my-openagent@3.17.4",
+    "oh-my-openagent@3.17.5"
   ],
 }
