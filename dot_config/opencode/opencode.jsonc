@@ -55,6 +55,12 @@
   },
   "permission": {
     "edit": "ask",
+    "external_directory": {
+      "/mnt/c/Obsidian": "allow",
+      "/mnt/c/Obsidian/*": "allow",
+      "/home/cnife/.config/cnife-skills": "allow",
+      "/home/cnife/.config/cnife-skills/*": "allow"
+    },
     "bash": {
       "*": "ask",
       // sudo（每次需确认，密码通过 SUDO_ASKPASS 自动提供）
