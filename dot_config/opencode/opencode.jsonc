@@ -29,6 +29,16 @@
       },
     },
   },
+  "tools": {
+    "jina_search_images": false,
+    "jina_classify_text": false,
+    "jina_sort_by_relevance": false,
+    "jina_deduplicate_strings": false,
+    "jina_deduplicate_images": false,
+    "jina_guess_datetime_url": false,
+    "jina_capture_screenshot_url": false,
+    "jina_show_api_key": false,
+  },
   "lsp": {
     "rumdl": {
       "command": [
@@ -185,9 +195,16 @@
       "kubectl auth can-i *": "allow",
       "kubectl diff *": "allow",
       "kubectl rollout history *": "allow",
+      "opencli list *": "allow",
+      "opencli validate *": "allow",
+      "opencli verify *": "allow",
+      "opencli doctor *": "allow",
+      "opencli browser *": "allow",
+      "opencli completion *": "allow",
+      "opencli plugin *": "allow",
+      "opencli adapter *": "allow",
+      "opencli daemon *": "allow",
     },
   },
-  "plugin": [
-    "oh-my-openagent@3.17.4"
-  ],
+  "plugin": [],
 }
