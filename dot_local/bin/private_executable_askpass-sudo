@@ -1,4 +1,17 @@
 #!/bin/sh
 # SUDO_ASKPASS helper: decrypts sudo password from GPG-encrypted file
 # Password never appears in LLM context or PTY output
-gpg --batch --quiet --pinentry-mode loopback --decrypt ~/.sudo-pass.gpg 2>/dev/null
+
+lockfile="$HOME/.gnupg/public-keys.d/pubring.db.lock"
+[ -f "$lockfile" ] && ! fuser "$lockfile" >/dev/null 2>&1 && rm -f "$lockfile"
+
+password=$(timeout 5 gpg --batch --quiet --pinentry-mode loopback --decrypt ~/.sudo-pass.gpg 2>/dev/null)
+
+if [ -n "$password" ]; then
+    echo "$password"
+else
+    stty -echo
+    read -r pass
+    stty echo
+    echo "$pass"
+fi
