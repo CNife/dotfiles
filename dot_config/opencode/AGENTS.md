@@ -88,4 +88,4 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 当你确定自己处于 WSL 中时，需遵循：
 - 操作 Windows 宿主机环境时，调用 Windows 程序如果输出乱码，需要转换编码：如`powershell.exe -Command "Get-ChildItem C:\" | iconv -f GBK -t UTF-8`；只有在确认程序输出是乱码时才需要转换编码，否则不要转换。
-- 操作浏览器时，必须使用 Windows 上的浏览器。**请提醒用户手动开启 Edge 的 CDP 调试端口**，启动后 CDP 端口为 `9222`，可以连接并执行命令。
+- 操作浏览器时，必须使用 `opencli` 来操作 Windows 上的浏览器。
